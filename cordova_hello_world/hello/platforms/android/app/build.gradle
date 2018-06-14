@@ -91,6 +91,9 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "../cordova-plugin-buildinfo/hello-BuildInfo.gradle"
+apply from: "../cordova-plugin-browsertab/hello-BrowserTab.gradle"
+apply from: "../cordova-plugin-firebase/hello-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras = file('build-extras.gradle').exists()
@@ -259,6 +262,14 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
+    compile "com.android.support:customtabs:23.3.0"
+    compile "com.google.gms:google-services:+"
+    compile "com.google.android.gms:play-services-tagmanager:+"
+    compile "com.google.firebase:firebase-core:+"
+    compile "com.google.firebase:firebase-messaging:+"
+    compile "com.google.firebase:firebase-crash:+"
+    compile "com.google.firebase:firebase-config:+"
+    compile "com.google.firebase:firebase-perf:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 
