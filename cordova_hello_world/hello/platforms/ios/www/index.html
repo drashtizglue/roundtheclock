@@ -43,6 +43,11 @@
                 <p class="event received">Device is Ready</p>
             </div>
         </div>
+        <p>Attempting to get your GPS location...</p>
+        <p> Good news here:</p>
+        <div id="results"></div>
+        <p> Bad new below here: </p>
+        <div id="bresults"></div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script>
@@ -51,7 +56,8 @@
             // current GPS coordinates
             //
             var onSuccess = function(position) {
-                alert('Latitude: '          + position.coords.latitude          + '\n' +
+                document.getElementById("results").innerHTML="
+                      'Latitude: '          + position.coords.latitude          + '\n' +
                       'Longitude: '         + position.coords.longitude         + '\n' +
                       'Altitude: '          + position.coords.altitude          + '\n' +
                       'Accuracy: '          + position.coords.accuracy          + '\n' +
@@ -59,16 +65,23 @@
                       'Heading: '           + position.coords.heading           + '\n' +
                       'Speed: '             + position.coords.speed             + '\n' +
                       'Timestamp: '         + position.timestamp                + '\n');
-            };
+            ";
          
             // onError Callback receives a PositionError object
             //
             function onError(error) {
-                alert('code: '    + error.code    + '\n' +
-                      'message: ' + error.message + '\n');
+                document.getElementById("bresults").innerHTML="'code: '    + error.code    + '\n' +
+                      'message: ' + error.message + '\n'";
+            }
+            
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            function onDeviceReady() {
+                console.log("navigator.geolocation works well");
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
             }
          
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            
         </script>
     </body>
 </html>
