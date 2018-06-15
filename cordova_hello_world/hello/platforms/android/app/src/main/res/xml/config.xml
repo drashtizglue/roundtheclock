@@ -7,6 +7,23 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="BuildInfo">
+        <param name="android-package" value="org.apache.cordova.buildinfo.BuildInfo" />
+    </feature>
+    <feature name="BrowserTab">
+        <param name="android-package" value="com.google.cordova.plugin.browsertab.BrowserTab" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="UniversalLinks">
+        <param name="android-package" value="com.nordnetab.cordova.ul.UniversalLinksPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FirebasePlugin">
+        <param name="android-package" value="org.apache.cordova.firebase.FirebasePlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>HelloWorld</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -25,6 +42,13 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>Need location access to update the clock...</string>
     </edit-config>
+    <universal-links>
+        <host name="helloworld.page.link" scheme="https" />
+        <host name="helloworld-c95ae.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="AndroidLaunchMode" value="singleTask" />
 </widget>

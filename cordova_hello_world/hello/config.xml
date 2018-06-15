@@ -27,6 +27,18 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
         <string>Need location access to update the clock...</string>
     </edit-config>
+    <plugin name="cordova-plugin-buildinfo" spec="^2.0.1" />
+    <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
+    <universal-links>
+        <host name="helloworld.page.link" scheme="https" />
+        <host name="helloworld-c95ae.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
+    </universal-links>
+    <preference name="AndroidLaunchMode" value="singleTask" />
+    <plugin name="cordova-universal-links-plugin" spec="https://github.com/walteram/cordova-universal-links-plugin" />
+    <plugin name="cordova-plugin-firebase" spec="^1.0.5" />
     <engine name="ios" spec="^4.5.4" />
-    <engine name="android" spec="^7.0.0" />
+    <engine name="android" spec="^7.1.0" />
 </widget>
