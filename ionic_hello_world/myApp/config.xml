@@ -82,9 +82,10 @@
     <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
-    <engine name="android" spec="~7.0.0" />
     <platform name="android">
         <preference name="loadUrlTimeoutValue" value="700000" />
     </platform>
     <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <engine name="android" spec="^7.1.0" />
+    <plugin name="cordova-plugin-ble-central" spec="^1.2.2" />
 </widget>

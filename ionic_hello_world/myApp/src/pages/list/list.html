@@ -14,10 +14,14 @@
       {{latitude}}
       {{longitude}}
       {{item.title}}
+      {{devices}}
       <div class="item-note" item-end>
         {{item.note}}
       </div>
     </button>
+
+
+
   </ion-list>
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
