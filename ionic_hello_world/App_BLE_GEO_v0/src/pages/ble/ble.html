@@ -1,0 +1,57 @@
+<!--
+  Generated template for the BlePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>BLE</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <button ion-button (click)="scan()">
+        Scan for devices
+    </button>
+
+    <h3 text-center *ngIf="devices.length">
+        Devices have been found :D
+    </h3>
+
+    <ion-list>
+      <button ion-item *ngFor="let device of devices" (click)="connect(device.id)">
+        {{device.name}}
+        <div class="item-note" item-right>
+          {{device.id}}
+        </div>
+      </button>
+    </ion-list>
+
+    <ion-item>
+      <ion-label>service_id</ion-label>
+      <ion-input type="text" [(ngModel)]="service_id" name="service_id"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>characteristic_id</ion-label>
+      <ion-textarea [(ngModel)]="characteristic_id" name="characteristic_id"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>ble_data</ion-label>
+      <ion-input type="text" [(ngModel)]="ble_data" name="ble_data"></ion-input>
+    </ion-item>
+    <button ion-button type="Read BLE" block (click)="ble_read()">Read data</button>
+    <button ion-button type="Write BLE" block (click)="ble_write()">Write data</button>
+
+    <button ion-button (click)="ble_disconnect()">
+        Disconnect
+    </button>
+
+    <p>Device details below</p>
+    {{device_details}}
+
+</ion-content>
